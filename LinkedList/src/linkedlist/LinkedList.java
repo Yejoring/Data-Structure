@@ -237,5 +237,18 @@ class LinkedList {
 	
 	public void reverseList() {
 		// 구현해보기
+		ListNode next=head;
+		ListNode current=null;
+		ListNode pre=null;
+		
+		while(next !=null) {
+			pre=current;
+			current=next;
+			next=next.link;
+			
+			current.link=pre;
+		}
+		head=current;
+		
 	}
 }
