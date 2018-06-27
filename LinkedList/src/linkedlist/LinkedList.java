@@ -155,21 +155,29 @@ class LinkedList {
 		ListNode visited=head;
 		ListNode prev=visited;
 		// 첫노드 삭제, 마지막노드 삭제, 중간 노드 삭제, 겹치는 값은 다 삭제
-		if(head== null)
+		if(head== null) {
+			System.out.println("빈 리스트입니다. 삭제 불가.");
+			return ;
+		}
+		
+		
 		while(visited!=null) {
+			
 			if(head.getData().equals(value)) {
 				head=head.link;
 				visited=head;
 				prev=visited;
+			}else{
+				if(!visited.getData().equals(value)) {
+					prev=visited;
+					visited=visited.link;
+				}else {
+					prev.link=visited.link;
+					visited=prev.link;
+					
+				}
+					
 			}
-			
-			if(!visited.getData().equals(value)) {
-				prev=visited;
-				visited=visited.link;
-			}else {
-				prev.link=visited.link;
-			}
-			
 			
 		}
 	}
