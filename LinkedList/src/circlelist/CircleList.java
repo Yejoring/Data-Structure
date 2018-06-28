@@ -10,74 +10,112 @@ public class CircleList {
 		newNode.setData(data);
 		if(head==null) {
 			head=newNode;
-			newNode.link=head;	// Ã¹ ¹øÀç ³ëµå°¡ ¸¶Áö¸· ³ëµå°¡ µÊ.
+			newNode.link=head;	// ì²« ë²ˆì¬ ë…¸ë“œê°€ ë§ˆì§€ë§‰ ë…¸ë“œê°€ ë¨.
 		}
-		else {					// ¸®½ºÆ®°¡ °ø¹é¸®½ºÆ®°¡ ¾Æ´Ñ °æ¿ì, ´Ü¼ø ¿¬°á ¸®½ºÆ®¿¡¼­ÀÇ ¸¶Áö¸· ³ëµå »ğÀÔ ¿¬»ê °úÁ¤ ¼öÇà
-			ListNode temp=head;	//ÀÓ½Ã ¼øÈ¸ ÂüÁ¶º¯¼ö temp. ³ëµå ¼øÈ¸ÀÇ ½ÃÀÛ À§Ä¡¸¦ ÁöÁ¤
+		else {					// ë¦¬ìŠ¤íŠ¸ê°€ ê³µë°±ë¦¬ìŠ¤íŠ¸ê°€ ì•„ë‹Œ ê²½ìš°, ë‹¨ìˆœ ì—°ê²° ë¦¬ìŠ¤íŠ¸ì—ì„œì˜ ë§ˆì§€ë§‰ ë…¸ë“œ ì‚½ì… ì—°ì‚° ê³¼ì • ìˆ˜í–‰
+			ListNode temp=head;	//ì„ì‹œ ìˆœíšŒ ì°¸ì¡°ë³€ìˆ˜ temp. ë…¸ë“œ ìˆœíšŒì˜ ì‹œì‘ ìœ„ì¹˜ë¥¼ ì§€ì •
 			while(temp.link!=head) {
 				temp=temp.link;
-			}					// ¸¶Áö¸· ³ëµå±îÁö ÀÌµ¿½ÃÅ²´Ù.
-			newNode.link=temp.link;	//¿øÇü ¿¬°á ¸®½ºÆ®¿¡¼­´Â newNode°¡ Ã¹³ëµåÀÌÀÚ ¸¶Áö¸·³ëµå°¡ µÊ.
+			}					// ë§ˆì§€ë§‰ ë…¸ë“œê¹Œì§€ ì´ë™ì‹œí‚¨ë‹¤.
+			newNode.link=temp.link;	//ì›í˜• ì—°ê²° ë¦¬ìŠ¤íŠ¸ì—ì„œëŠ” newNodeê°€ ì²«ë…¸ë“œì´ì ë§ˆì§€ë§‰ë…¸ë“œê°€ ë¨.
 			temp.link=newNode;
 			head=newNode;
 		}
 		
 		
-		// »ğÀÔÇÑ ³ëµå newNode´Â CircleListÀÇ Ã¹¹øÂ° ³ëµå »çÀÌ¿¡ »ğÀÔ > ¸®½ºÆ®ÀÇ »õ·Î¿î Ã¹¹øÀç ³ëµå°¡ µÇ¾ú°í
-		// ¸¶Áö¸· ³ëµå¿Í ¿¬°áÇÏ¿© ¿øÇü ¿¬°á¸®½ºÆ® »óÅÂ¸¦ À¯ÁöÇÏµµ·Ï ÇÏ¿´´Ù.
+		// ì‚½ì…í•œ ë…¸ë“œ newNodeëŠ” CircleListì˜ ì²«ë²ˆì§¸ ë…¸ë“œ ì‚¬ì´ì— ì‚½ì… > ë¦¬ìŠ¤íŠ¸ì˜ ìƒˆë¡œìš´ ì²«ë²ˆì¬ ë…¸ë“œê°€ ë˜ì—ˆê³ 
+		// ë§ˆì§€ë§‰ ë…¸ë“œì™€ ì—°ê²°í•˜ì—¬ ì›í˜• ì—°ê²°ë¦¬ìŠ¤íŠ¸ ìƒíƒœë¥¼ ìœ ì§€í•˜ë„ë¡ í•˜ì˜€ë‹¤.
 		
 	}
-	// Áß°£ ³ëµå·Î »ğÀÔ > ÀÎµ¦½º ÀÔ·ÂÇÏ¸é ³ª´°¼À ÇØ°¡Áö°í. ±×¸¸Å­¸¸ ¾ÕÀ¸·Î °¡.
+	// ì¤‘ê°„ ë…¸ë“œë¡œ ì‚½ì… > ì¸ë±ìŠ¤ ì…ë ¥í•˜ë©´ ë‚˜ëˆ—ì…ˆ í•´ê°€ì§€ê³ . ê·¸ë§Œí¼ë§Œ ì•ìœ¼ë¡œ ê°€.
+	/**
+	 * 
+	 * @param index : ë‚˜ëˆ—ì…ˆ í•˜ì—¬ ì•ìœ¼ë¡œ ìˆœíšŒí•˜ê²Œ ë§Œë“œëŠ” ì¸ë±ìŠ¤ ê°’, int
+	 * @param data : ë°ì´í„°
+	 * 
+	 * ì§€ì •í•œ ì¸ë±ìŠ¤ì— ì§€ì •í•œ ê°’ì„ ì‚½ì…í•œë‹¤.
+	 */
 	public void insertNodeByIndexing(int index, String data) {
 		ListNode newNode=new ListNode();
-		newNode.setData(data);
-		int cnt=countCircleListNode();
-		if(head==null) {
-			System.out.println("ºó ¸®½ºÆ®ÀÔ´Ï´Ù. Ã¹ ¹øÂ°·Î »ğÀÔÇÕ´Ï´Ù.");
+		newNode.setData(data);				// ìƒˆë¡œìš´ ë…¸ë“œë¥¼ ìƒì„±í•˜ì—¬ setterë¡œ ë°ì´í„° ì‚½ì…
+		int cnt=countCircleListNode();		// countCircleListNodeë¼ëŠ”, ì›í˜•ì—°ê²° ë¦¬ìŠ¤íŠ¸ì˜ ê°¯ìˆ˜ë¥¼ ì„¸ì–´ì£¼ëŠ” ë©”ì„œë“œ í˜¸ì¶œí•˜ì—¬ cntì— ì‚½ì…
+		if(head==null) {					// headê°€ ì—†ì„ ë• ì¸ë±ìŠ¤ê°€ ë¬´ìš©ì§€ë¬¼
+			System.out.println("ë¹ˆ ë¦¬ìŠ¤íŠ¸ì…ë‹ˆë‹¤. ì²« ë²ˆì§¸ë¡œ ì‚½ì…í•©ë‹ˆë‹¤.");
 			head=newNode;
 			newNode.link=head;
 		}else {
 			
 			if(index%cnt==0||index%cnt==1) {
-				insertFirstNode(data);
-			}else {
-				ListNode temp=head;
-				for (int i=0;i<index;i++) {
+				insertFirstNode(data);		// ê°¯ìˆ˜ê°€ ë§ˆì§€ë§‰ ë…¸ë“œì´ê±°ë‚˜ ì²« ë…¸ë“œë¥¼ ê°€ë¦¬í‚¬ ë•Œ ì²« ë…¸ë“œì— ì‚½ì…í•˜ëŠ”ê±°ë‘ ë§ˆì§€ë§‰ ë…¸ë“œì— ì‚½ì…í•˜ëŠ” ê±°ë‘ ê°™ìŒ
+			}else {							// ê·¸ ì™¸
+				ListNode temp=head;			// ìˆœíšŒì„ì‹œì°¸ì¡°ë³€ìˆ˜ temp
+				for (int i=0;i<index%cnt;i++) {	// ìˆœíšŒ...
 					temp=temp.link;
 				}
-				newNode.link=temp;
-				temp.link=newNode;
+				newNode.link=temp;		// ìƒˆë¡œìš´ ë…¸ë“œì˜ ë§í¬ê°€ tempê°€ ê°€ë¦¬í‚¤ëŠ” ë…¸ë“œë¥¼ ê°€ë¦¬í‚¤ê²Œ í•œë‹¤.
+				temp.link=newNode;		// tempê°€ ê°€ë¦¬í‚¤ëŠ” ë…¸ë“œì˜ ë§í¬ê°€ newNodeë¥¼ ê°€ë¦¬í‚¤ê²Œ í•œë‹¤.
 			}
 		}
 	}
-	
+	/**
+	 * 
+	 * @return : ë…¸ë“œì˜ ê°¯ìˆ˜ë¥¼ ì„¸ì–´ì„œ ë°˜í™˜í•¨.
+	 */
 	public int countCircleListNode() {
 		int cnt=0;
 		ListNode temp=head;
-		while(temp!=head) {
+		while(temp.link!=head) {	// ìˆœíšŒ ì°¸ì¡°ë³€ìˆ˜ tempì˜ linkê°€ headë¥¼ ê°€ë¦¬í‚¤ë©´ ë§ˆì§€ë§‰ë…¸ë“œì— ë‹¤ë‹¤ëë‹¤ëŠ” ëœ»
 			temp=temp.link;
 			cnt++;
 		}
 		return cnt;
 	}
 	/////////////////////////////////////////
-	public void deleteCircleListNode() {
+	public void deleteCircleListNode(int index) {
+		ListNode visited=head;
+		ListNode prev=visited;
+		int totalCnt=countCircleListNode();
 		if(head==null) {
-			System.out.println("ºó ¸®½ºÆ®ÀÔ´Ï´Ù. »èÁ¦ ºÒ°¡.");
+			System.out.println("ë¹ˆ ë¦¬ìŠ¤íŠ¸ì…ë‹ˆë‹¤. ì‚­ì œ ë¶ˆê°€.");
 			return;
 		}else {
+			if(index%totalCnt==0) {
+				while(visited.link!=head) {
+					prev=visited;
+					visited=visited.link;
+				}
+				prev.link=visited.link;
 			
+			
+				
+			}else if(index%totalCnt==1) {
+				while(visited.link!=head) {
+					visited=visited.link;
+				}
+				head=head.link;
+				visited.link=head;
+			}
+			
+			else {
+				for(int i=0;i<index%totalCnt;i++) {
+					prev=visited;
+					visited=visited.link;
+					
+				}
+				prev.link=visited.link;
+				
+			}
 		}
 	}
 	///////////////////////////////////////
 	public void printList() {
 		ListNode temp=this.head;
 		if(temp==null) {
-			System.out.println("¸®½ºÆ®°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+			System.out.println("ë¦¬ìŠ¤íŠ¸ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			return;
 		}
 		System.out.print(" L : ");
-		while (temp!=null) {
+		while (temp.link!=head) {			// ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ë¶€ë¶„ ì†ë´ì•¼í•¨.... ë¬´í•œë£¨í”„ ëŒì•„. tempê°€ nullì´ ì•„ë‹Œ ê²½ìš°ê°€ ì—†ì–´. > temp.linkê°€ headê°€ ì•„ë‹Œ ê²½ìš°ë¡œ ì† ë´¤ìŒ.
 			System.out.print(temp.getData());
 			temp=temp.link;
 			if(temp!=null) {
