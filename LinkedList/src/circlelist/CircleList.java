@@ -62,12 +62,13 @@ public class CircleList {
 	 * @return : 노드의 갯수를 세어서 반환함.
 	 */
 	public int countCircleListNode() {
-		int cnt=0;
+		int cnt=1;
 		ListNode temp=head;
 		while(temp.link!=head) {	// 순회 참조변수 temp의 link가 head를 가리키면 마지막노드에 다다랐다는 뜻
 			temp=temp.link;
 			cnt++;
 		}
+		System.out.println(cnt);
 		return cnt;
 	}
 	/////////////////////////////////////////
@@ -110,15 +111,16 @@ public class CircleList {
 	///////////////////////////////////////
 	public void printList() {
 		ListNode temp=this.head;
+		int cnt=countCircleListNode();
 		if(temp==null) {
 			System.out.println("리스트가 존재하지 않습니다.");
 			return;
 		}
 		System.out.print(" L : ");
-		while (temp.link!=head) {			// 리스트 출력부분 손봐야함.... 무한루프 돌아. temp가 null이 아닌 경우가 없어. > temp.link가 head가 아닌 경우로 손 봤음.
+		for(int i=0;i<cnt;i++) {			// 리스트 출력부분 손봐야함.... 무한루프 돌아. temp가 null이 아닌 경우가 없어. > temp.link가 head가 아닌 경우로 손 봤음.
 			System.out.print(temp.getData());
 			temp=temp.link;
-			if(temp!=null) {
+			if(i!=cnt-1) {
 				System.out.print(", ");
 			}
 		}

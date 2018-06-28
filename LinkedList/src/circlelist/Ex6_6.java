@@ -12,11 +12,8 @@ public class Ex6_6 {
 		cl.insertFirstNode("7");
 		cl.insertFirstNode("8");
 		
-		
-		
 		cl.deleteCircleListNode(1);
-		cl.deleteCircleListNode(20);
-		cl.deleteCircleListNode(8);
+		
 		cl.printList();
 		
 	}
