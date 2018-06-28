@@ -20,5 +20,11 @@ public class Node {
 	public int getExpo() {
 		return this.expo;
 	}
+	public void setCoef(float coef) {
+		this.coef=coef;
+	}
+	public void setExpo(int expo) {
+		this.expo=expo;
+	}
 	
 }
