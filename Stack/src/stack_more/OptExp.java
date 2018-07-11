@@ -69,7 +69,10 @@ public class OptExp {
 				break;
 			}
 		}
-		postfix[index]=S.pop();
+		while(!S.isEmpty()) {
+			postfix[index++]=S.pop();
+			
+		}
 		return postfix;
 	}
 }
